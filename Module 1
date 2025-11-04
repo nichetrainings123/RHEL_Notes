@@ -1,188 +1,414 @@
-📘 Module-1: Introduction to Red Hat Enterprise Linux (RHEL)
-🎯 Learning Objectives
+🧩 Complete RHEL Notes (Module 1–15)
 
-By the end of this module, you will be able to:
+Red Hat Enterprise Linux – Full Course Content (Admin + Practical)
 
-Understand Linux, its distributions, and RHEL
+🟥 Module 1: Introduction to Red Hat Enterprise Linux
+🎯 Objectives
 
-Navigate the Linux terminal
+Understand Linux & RHEL
 
-Execute basic Linux commands
+Explore file system hierarchy
 
-Understand the directory structure
+Work with shell and terminal
 
-Login and logout from Linux (Local & SSH)
+Use basic Linux commands
 
-View system help & manuals
+Log in, log out, and get help
 
 🧠 What is Linux?
 
-Linux is an open-source operating system kernel created by Linus Torvalds in 1991.
+Linux is an open-source operating system kernel created by Linus Torvalds (1991).
+It forms the foundation of many server operating systems like RHEL, Ubuntu, and CentOS.
 
-✅ Key Characteristics
 Feature	Description
-Open Source	Free to modify & distribute
-Multi-User	Multiple users can access simultaneously
-Multi-Tasking	Run multiple tasks at once
-Secure	File permissions & SELinux support
-Stable & Scalable	Used in servers, cloud, DevOps, AI, etc.
-🏗️ Linux Distributions
-
-A Linux distribution = Linux kernel + utilities + package manager
-
-Category	Examples	Notes
-Enterprise OS	RHEL, CentOS, Rocky Linux, SUSE	Production servers
-Community OS	Ubuntu, Debian, Fedora	Free and popular
-Security OS	Kali Linux	Ethical hacking
-Cloud OS	Amazon Linux	AWS servers
+Open Source	Free to modify and distribute
+Multiuser	Multiple users can log in simultaneously
+Multitasking	Multiple tasks at the same time
+Secure	Permissions, SELinux
+Scalable	Used from laptops to servers
 🟥 What is RHEL?
 
-RHEL = Red Hat Enterprise Linux
+RHEL (Red Hat Enterprise Linux) is a commercial Linux distribution by Red Hat Inc.
 
-Enterprise-grade OS for production servers
+Used in enterprise and cloud environments
 
-Widely used in corporate & cloud environments
+Supports automation, containers, virtualization
 
-Paid support & security patching
-
-✅ If you're learning Linux for DevOps, AWS, Kubernetes, or Cybersecurity, RHEL-based systems are highly recommended.
+Comes with subscription-based updates & support
 
 🖥️ Accessing RHEL
-Local Access
+Access Type	Example
+Local Access	Login to console or GUI
+Remote Access	ssh cloud-user@<server-ip>
+🧩 Shell & Terminal Basics
 
-Physical / Virtual Machine login
+Linux uses a command-line interface (CLI) known as the shell.
 
-GUI login (GNOME)
-
-Terminal access (CLI)
-
-Remote Access
-
-Using SSH from Windows/macOS/Linux:
-
-ssh cloud-user@SERVER-IP
-
-🟦 Basic Linux Commands
-Action	Command
-Display username	whoami
-Display hostname	hostname
-Show present working directory	pwd
-List files	ls
-Change directory	cd /path
-Clear screen	clear or Ctrl + L
-Check system date	date
-Check calendar	cal
-📂 Linux Directory Structure
-
-Linux uses a tree-based file system:
-
-Directory	Purpose
-/	Root of filesystem
-/home/	User home directories
-/root/	Root user home
-/etc/	Configuration files
-/var/	Logs, variable data
-/usr/	User binaries, libraries
-/bin/	Basic commands (ls, cp, mv)
-/sbin/	System binaries
-/tmp/	Temp files
-/opt/	Optional applications
-/dev/	Device files
-/boot/	Kernel files
-👤 Users & Superuser
-
-Linux has two types of users:
-
-Type	Description
-Normal User	Limited privileges
-Superuser (root)	Complete control
-
-Switch to root:
-
-su -
-
-
-Execute command as root:
-
-sudo <command>
-
-🔍 Getting Help in Linux
-Purpose	Command
-Command manual	man <command>
-Command help	<command> --help
-Search manual	man -k <keyword>
-What command does	which <command>
-Example:
-man ls
-ls --help
-which cp
-
-🚪 Login & Logout Commands
-Action	Command
-Login	via SSH or GUI
-Logout session	exit
-Reboot system	reboot
-Shutdown system	shutdown -h now
-⌨️ Shell & Terminal Basics
-
-Linux shell = command interpreter
 Common shells:
 
-bash (default in RHEL)
+bash (default)
 
 sh
 
 zsh
 
-Check shell:
+Check current shell:
 
 echo $SHELL
 
-🧪 Hands-On Practice
+📂 File System Hierarchy
+Directory	Purpose
+/	Root of file system
+/home	User directories
+/etc	Configuration files
+/var	Logs, variable files
+/usr	Installed programs
+/tmp	Temporary files
+/dev	Device files
+/boot	Kernel & bootloader files
+🔹 Common Commands
+whoami          # Show current user
+hostname        # System name
+pwd             # Present directory
+ls -l           # List files
+cd /etc         # Change directory
+mkdir test      # Create directory
+rm -r test      # Remove directory
+date            # System date
+cal             # Calendar
+clear           # Clear screen
 
-Run these commands:
+🧠 Help Commands
+man ls          # Show manual page
+ls --help       # Quick syntax help
+which cp        # Locate command path
+man -k copy     # Search manual
 
+✅ Practice
 whoami
-hostname
 pwd
-ls -l
 cd /etc
-pwd
-ls
+ls -l
 cd ~
 date
 cal
-man ls
 
-💡 Real-World Example
+🟦 Module 2: User, Group & Permission Management
+🎯 Objectives
 
-SSH into a server and list logs:
+Create and manage users/groups
 
-ssh cloud-user@192.168.1.10
-cd /var/log
-ls -lh
+Apply Linux file permissions
 
-📝 Summary
-Topic	Covered ✅
-Linux basics	✅
-RHEL overview	✅
-Login methods	✅
-Basic commands	✅
-Directory structure	✅
-Shell usage	✅
-Manual/help commands	✅
-🎓 Module Completion Badge
+Manage access control (ACL)
 
-You have completed:
+👤 User Management
+useradd john
+passwd john
+userdel -r john
 
-✅ Module-1: Introduction to Linux & RHEL Basics
 
-Next Module 👉
-Users, Groups, and Permission Management
+View users:
 
-📂 Git Commit Suggestion
-File Name
-01-RHEL-Introduction.md
+cat /etc/passwd
 
-Commit Message
-Added Module-1 RHEL introduction notes for Linux training program
+👥 Group Management
+groupadd devops
+usermod -aG devops john
+groups john
+
+
+View groups:
+
+cat /etc/group
+
+🔐 Permissions
+Symbol	Meaning	Value
+r	Read	4
+w	Write	2
+x	Execute	1
+
+Example:
+
+chmod 755 script.sh
+chown john:devops file.txt
+
+
+ACLs:
+
+setfacl -m u:bob:rw file.txt
+getfacl file.txt
+
+🟨 Module 3: File System & Storage Management
+🎯 Objectives
+
+Partition, format, and mount disks
+
+Configure LVM
+
+Persistent mounting
+
+Disk Commands
+
+lsblk
+fdisk -l
+blkid
+
+
+Partition Creation
+
+fdisk /dev/xvdb
+mkfs.xfs /dev/xvdb1
+mkdir /data
+mount /dev/xvdb1 /data
+
+
+Persistent Mount
+Edit /etc/fstab:
+
+/dev/xvdb1 /data xfs defaults 0 0
+
+
+LVM Setup
+
+pvcreate /dev/xvdc
+vgcreate vgdata /dev/xvdc
+lvcreate -L 5G -n lvbackup vgdata
+mkfs.xfs /dev/vgdata/lvbackup
+mount /dev/vgdata/lvbackup /backup
+
+🟩 Module 4: Process and Service Management
+🎯 Objectives
+
+Manage running processes
+
+Control services via systemd
+
+Process Commands
+
+ps -ef
+top
+kill -9 PID
+
+
+Systemd
+
+systemctl start httpd
+systemctl enable httpd
+systemctl status sshd
+
+
+Logs
+
+journalctl -u httpd
+
+🟧 Module 5: Package Management (YUM/DNF)
+🎯 Objectives
+
+Install, remove, update packages
+
+Manage repositories
+
+Commands
+
+yum install nginx -y
+yum remove nginx
+yum list installed
+yum info nginx
+yum update -y
+
+
+Repositories:
+
+ls /etc/yum.repos.d/
+yum repolist
+
+🟪 Module 6: Networking & Firewall
+🎯 Objectives
+
+Configure IP
+
+Manage firewalls
+
+Test connectivity
+
+Network
+
+ip a
+nmcli device status
+ping 8.8.8.8
+
+
+Firewall
+
+firewall-cmd --state
+firewall-cmd --add-port=8080/tcp --permanent
+firewall-cmd --reload
+
+🟥 Module 7: SELinux and Security
+🎯 Objectives
+
+Manage SELinux
+
+Secure file contexts
+
+Status
+
+getenforce
+sestatus
+
+
+Change Mode
+
+setenforce 0
+
+
+Restore Context
+
+restorecon -Rv /var/www/html
+
+🟦 Module 8: Monitoring and Logs
+
+System Usage
+
+top
+vmstat 2
+iostat -x 2
+
+
+Logs
+
+journalctl -b
+tail -f /var/log/messages
+
+🟨 Module 9: Scheduling and Automation
+
+Cron
+
+crontab -e
+crontab -l
+
+
+Example:
+
+0 3 * * * /home/admin/backup.sh
+
+
+at Command
+
+at now + 5 minutes
+
+🟩 Module 10: Shell Scripting
+
+Basic Script
+
+#!/bin/bash
+echo "Hello from RHEL"
+date
+
+
+Make Executable
+
+chmod +x script.sh
+./script.sh
+
+
+Conditional Example
+
+if [ -f /etc/passwd ]; then
+  echo "File exists"
+fi
+
+🟧 Module 11: Boot Process & Recovery
+
+BIOS → GRUB → Kernel → Systemd
+
+Boot targets: multi-user.target, graphical.target
+
+GRUB Config
+
+cat /etc/default/grub
+grub2-mkconfig -o /boot/grub2/grub.cfg
+
+
+Rescue Mode
+
+chroot /mnt/sysimage
+
+🟪 Module 12: File Sharing & Remote Access
+
+SSH
+
+ssh user@ip
+scp file.txt user@ip:/tmp/
+
+
+NFS
+
+yum install nfs-utils -y
+echo "/data *(rw,sync)" >> /etc/exports
+exportfs -r
+mount -t nfs server:/data /mnt
+
+🟥 Module 13: Backup & Restore
+
+Backup
+
+tar -czf backup.tar.gz /home
+rsync -avz /home/ /backup/
+
+
+Restore
+
+tar -xzf backup.tar.gz -C /restore
+
+🟦 Module 14: System Performance & Tuning
+
+Tools
+
+top
+htop
+iostat
+sar
+
+
+Tuning
+
+tuned-adm list
+tuned-adm profile throughput-performance
+
+
+Sysctl
+
+sysctl -a
+sysctl -w net.ipv4.ip_forward=1
+
+🟩 Module 15: RHEL for Cloud & DevOps
+
+Commands
+
+subscription-manager register
+dnf install podman -y
+podman run -d -p 8080:80 nginx
+
+
+Automation
+
+Use Ansible to manage RHEL nodes
+
+Use cloud-init for first boot configuration
+
+Integrate RHEL with AWS EC2, Azure VM
+
+✅ Final Summary
+Area	Key Skills
+Linux Basics	Commands, navigation
+User Management	useradd, chmod, ACL
+Storage	fdisk, LVM, fstab
+Packages	yum, dnf, repos
+Networking	ip, firewall-cmd
+Security	SELinux, SSH
+Logs	journalctl, /var/log
+Shell Scripting	Automation
+Cloud	Podman, subscription
+Backup	tar, rsync
