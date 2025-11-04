@@ -1,0 +1,188 @@
+📘 Module-1: Introduction to Red Hat Enterprise Linux (RHEL)
+🎯 Learning Objectives
+
+By the end of this module, you will be able to:
+
+Understand Linux, its distributions, and RHEL
+
+Navigate the Linux terminal
+
+Execute basic Linux commands
+
+Understand the directory structure
+
+Login and logout from Linux (Local & SSH)
+
+View system help & manuals
+
+🧠 What is Linux?
+
+Linux is an open-source operating system kernel created by Linus Torvalds in 1991.
+
+✅ Key Characteristics
+Feature	Description
+Open Source	Free to modify & distribute
+Multi-User	Multiple users can access simultaneously
+Multi-Tasking	Run multiple tasks at once
+Secure	File permissions & SELinux support
+Stable & Scalable	Used in servers, cloud, DevOps, AI, etc.
+🏗️ Linux Distributions
+
+A Linux distribution = Linux kernel + utilities + package manager
+
+Category	Examples	Notes
+Enterprise OS	RHEL, CentOS, Rocky Linux, SUSE	Production servers
+Community OS	Ubuntu, Debian, Fedora	Free and popular
+Security OS	Kali Linux	Ethical hacking
+Cloud OS	Amazon Linux	AWS servers
+🟥 What is RHEL?
+
+RHEL = Red Hat Enterprise Linux
+
+Enterprise-grade OS for production servers
+
+Widely used in corporate & cloud environments
+
+Paid support & security patching
+
+✅ If you're learning Linux for DevOps, AWS, Kubernetes, or Cybersecurity, RHEL-based systems are highly recommended.
+
+🖥️ Accessing RHEL
+Local Access
+
+Physical / Virtual Machine login
+
+GUI login (GNOME)
+
+Terminal access (CLI)
+
+Remote Access
+
+Using SSH from Windows/macOS/Linux:
+
+ssh cloud-user@SERVER-IP
+
+🟦 Basic Linux Commands
+Action	Command
+Display username	whoami
+Display hostname	hostname
+Show present working directory	pwd
+List files	ls
+Change directory	cd /path
+Clear screen	clear or Ctrl + L
+Check system date	date
+Check calendar	cal
+📂 Linux Directory Structure
+
+Linux uses a tree-based file system:
+
+Directory	Purpose
+/	Root of filesystem
+/home/	User home directories
+/root/	Root user home
+/etc/	Configuration files
+/var/	Logs, variable data
+/usr/	User binaries, libraries
+/bin/	Basic commands (ls, cp, mv)
+/sbin/	System binaries
+/tmp/	Temp files
+/opt/	Optional applications
+/dev/	Device files
+/boot/	Kernel files
+👤 Users & Superuser
+
+Linux has two types of users:
+
+Type	Description
+Normal User	Limited privileges
+Superuser (root)	Complete control
+
+Switch to root:
+
+su -
+
+
+Execute command as root:
+
+sudo <command>
+
+🔍 Getting Help in Linux
+Purpose	Command
+Command manual	man <command>
+Command help	<command> --help
+Search manual	man -k <keyword>
+What command does	which <command>
+Example:
+man ls
+ls --help
+which cp
+
+🚪 Login & Logout Commands
+Action	Command
+Login	via SSH or GUI
+Logout session	exit
+Reboot system	reboot
+Shutdown system	shutdown -h now
+⌨️ Shell & Terminal Basics
+
+Linux shell = command interpreter
+Common shells:
+
+bash (default in RHEL)
+
+sh
+
+zsh
+
+Check shell:
+
+echo $SHELL
+
+🧪 Hands-On Practice
+
+Run these commands:
+
+whoami
+hostname
+pwd
+ls -l
+cd /etc
+pwd
+ls
+cd ~
+date
+cal
+man ls
+
+💡 Real-World Example
+
+SSH into a server and list logs:
+
+ssh cloud-user@192.168.1.10
+cd /var/log
+ls -lh
+
+📝 Summary
+Topic	Covered ✅
+Linux basics	✅
+RHEL overview	✅
+Login methods	✅
+Basic commands	✅
+Directory structure	✅
+Shell usage	✅
+Manual/help commands	✅
+🎓 Module Completion Badge
+
+You have completed:
+
+✅ Module-1: Introduction to Linux & RHEL Basics
+
+Next Module 👉
+Users, Groups, and Permission Management
+
+📂 Git Commit Suggestion
+File Name
+01-RHEL-Introduction.md
+
+Commit Message
+Added Module-1 RHEL introduction notes for Linux training program
